@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import "@elastic/eui/dist/eui_theme_light.css";
+
+import { EuiFlexItem, EuiFlexGroup, EuiPage } from "@elastic/eui";
+import { SearchBox } from "./SearchBox";
+import { DataTable } from "./DataTable";
 
 function App() {
+  const [gene, setGene] = useState<string | null>(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EuiPage>
+      <EuiFlexGroup direction="column">
+        <EuiFlexItem>
+          <SearchBox onChange={setGene} />
+        </EuiFlexItem>
+        <EuiFlexItem>{gene && <DataTable gene={gene} />}</EuiFlexItem>
+      </EuiFlexGroup>
+    </EuiPage>
   );
 }
 
