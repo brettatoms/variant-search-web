@@ -44,11 +44,12 @@ export const SearchBox: React.FC<Props> = ({ onChange }) => {
   return (
     <EuiComboBox
       async
+      aria-label="Search for a gene"
       isLoading={isLoading}
       onChange={handleChange}
       onSearchChange={onSearchChange}
       options={options}
-      placeholder={"Search"}
+      placeholder={"Search for a gene"}
       selectedOptions={selectedOptions}
       singleSelection={{ asPlainText: true }}
     />

@@ -13,9 +13,11 @@ function App() {
     <EuiPage>
       <EuiFlexGroup direction="column">
         <EuiFlexItem>
-          <SearchBox onChange={setGene} />
+          <SearchBox onChange={setGene} data-test-subj="app-search-box" />
         </EuiFlexItem>
-        <EuiFlexItem>{gene && <DataTable gene={gene} />}</EuiFlexItem>
+        <EuiFlexItem>
+          {gene && <DataTable gene={gene} data-test-subj="app-data-table" />}
+        </EuiFlexItem>
       </EuiFlexGroup>
     </EuiPage>
   );

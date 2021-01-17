@@ -128,6 +128,8 @@ export const DataTable: React.FC<Props> = ({ gene }) => {
 
   return (
     <EuiBasicTable
+      data-testid="data-table"
+      aria-label="Gene data table "
       columns={columns}
       isExpandable
       isSelectable
